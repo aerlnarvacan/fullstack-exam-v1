@@ -29,3 +29,4 @@ cghooks.lock
 /build.*.xml
 /phpspec.*.yml
 *.bak
+.vscode

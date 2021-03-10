@@ -2,7 +2,7 @@ FROM php:7.3.25-fpm-alpine
 
 RUN apk update && apk add curl git wget 1> /dev/null
 
-RUN docker-php-ext-install pdo pdo_mysql 1> /dev/null
+RUN docker-php-ext-install pdo pdo_mysql mysqli 1> /dev/null
 
 RUN docker-php-ext-install bcmath sockets 1> /dev/null
 

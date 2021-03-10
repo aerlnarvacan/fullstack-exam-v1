@@ -12,8 +12,10 @@
 		"bin-dir": "bin"
 	},
 	"autoload": {
-		"psr-0": {
-			"Sourcefit\\": "src/Sourcefit"
+		"psr-4": {
+			"Sourcefit\\": "src/Sourcefit",
+			"App\\Services\\": "application/services",
+			"App\\Models\\": "application/models"
 		}
 	}
 }
