@@ -10,6 +10,8 @@ use App\Services\Handlers\LeaveFilingHandler;
 use App\Services\Handlers\LeaveApprovalHandler;
 use App\Services\Handlers\LeaveCancellationHandler;
 use App\Services\Handlers\LeaveDenialHandler;
+use App\Services\Factories\EmployeeRepositoryFactory;
+use App\Services\Factories\LeaveRepositoryFactory;
 use App\Services\Dto\FileLeave;
 use App\Services\Dto\CancelLeave;
 use App\Services\Dto\ApproveLeave;
@@ -17,12 +19,20 @@ use App\Services\Dto\DenyLeave;
 
 class LeaveActions extends CI_Controller
 {
+    private $employeerepository;
+    private $leaverepository;
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
-        $this->load->library('repositories/employeeRepository');
-        $this->load->library('repositories/leaveRepository');
+        
+        /**
+         * Load Repositories
+         */
+        $this->employeerepository = EmployeeRepositoryFactory::getInstance($this->config->item('data_storage'));
+        $this->leaverepository = LeaveRepositoryFactory::getInstance($this->config->item('data_storage'));
+        
+        error_reporting(E_ERROR);
     }
 
     public function create()

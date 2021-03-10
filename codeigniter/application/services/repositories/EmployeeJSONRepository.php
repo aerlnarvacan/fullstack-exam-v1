@@ -1,9 +1,9 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+namespace App\Services\Repositories;
 
 use App\Models\EmployeeJSON;
 
-class EmployeeJSONRepository implements Sourcefit\Domain\LeaveManagement\Repository\EmployeeRepository
+class EmployeeJSONRepository implements \Sourcefit\Domain\LeaveManagement\Repository\EmployeeRepository
 {
     private $employee;
     public function __construct()
@@ -11,12 +11,12 @@ class EmployeeJSONRepository implements Sourcefit\Domain\LeaveManagement\Reposit
         $this->employee = new EmployeeJSON();
     }
 
-    public function findOne(string $employeeId): ?Sourcefit\Domain\LeaveManagement\Employee
+    public function findOne(string $employeeId): ?\Sourcefit\Domain\LeaveManagement\Employee
     {
         return $this->employee->findById($employeeId);
     }
 
-    public function store(Sourcefit\Domain\LeaveManagement\Employee $employee): void
+    public function store(\Sourcefit\Domain\LeaveManagement\Employee $employee): void
     {
     }
 
@@ -30,7 +30,7 @@ class EmployeeJSONRepository implements Sourcefit\Domain\LeaveManagement\Reposit
         $this->employee->adjustLeaveCredit($employeeId, 'DECR');
     }
 
-    public function getByUsername(string $username): ?Sourcefit\Domain\LeaveManagement\Employee
+    public function getByUsername(string $username): ?\Sourcefit\Domain\LeaveManagement\Employee
     {
         return $this->employee->findByUsername($username);
     }

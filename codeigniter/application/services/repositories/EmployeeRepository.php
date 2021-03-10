@@ -1,9 +1,9 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+namespace App\Services\Repositories;
 
 use App\Models\Employee;
 
-class EmployeeRepository implements Sourcefit\Domain\LeaveManagement\Repository\EmployeeRepository
+class EmployeeRepository implements \Sourcefit\Domain\LeaveManagement\Repository\EmployeeRepository
 {
     private $employee;
     public function __construct()
@@ -11,12 +11,12 @@ class EmployeeRepository implements Sourcefit\Domain\LeaveManagement\Repository\
         $this->employee = new Employee();
     }
 
-    public function findOne(string $employeeId): ?Sourcefit\Domain\LeaveManagement\Employee
+    public function findOne(string $employeeId): ?\Sourcefit\Domain\LeaveManagement\Employee
     {
         return $this->employee->findOne(['id' => $employeeId]);
     }
 
-    public function store(Sourcefit\Domain\LeaveManagement\Employee $employee): void
+    public function store(\Sourcefit\Domain\LeaveManagement\Employee $employee): void
     {
     }
 
@@ -30,7 +30,7 @@ class EmployeeRepository implements Sourcefit\Domain\LeaveManagement\Repository\
         $this->employee->adjustLeaveCredit($employeeId, 'DECR');
     }
 
-    public function getByUsername(string $username): ?Sourcefit\Domain\LeaveManagement\Employee
+    public function getByUsername(string $username): ?\Sourcefit\Domain\LeaveManagement\Employee
     {
         return $this->employee->findOne(['username' => $username]);
     }

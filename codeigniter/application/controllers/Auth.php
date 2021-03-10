@@ -2,15 +2,21 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use App\Services\Handlers\EmployeeHandler;
+use App\Services\Factories\EmployeeRepositoryFactory;
 
 class Auth extends CI_Controller
 {
+    private $employeerepository;
+
     public function __construct()
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->database();
-        $this->load->library('repositories/employeeRepository');
+        /**
+         * Load Repositories
+         */
+        $this->employeerepository = EmployeeRepositoryFactory::getInstance($this->config->item('data_storage'));
+        error_reporting(E_ERROR);
     }
 
     public function login()

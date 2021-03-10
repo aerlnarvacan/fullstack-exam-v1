@@ -1,9 +1,9 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+namespace App\Services\Repositories;
 
 use App\Models\Leave;
 
-class LeaveRepository implements Sourcefit\Domain\LeaveManagement\Repository\LeaveRepository
+class LeaveRepository implements \Sourcefit\Domain\LeaveManagement\Repository\LeaveRepository
 {
     private $leave;
 
@@ -17,12 +17,12 @@ class LeaveRepository implements Sourcefit\Domain\LeaveManagement\Repository\Lea
         return $this->leave->findOne(['id' => $leaveId]);
     }
   
-    public function store(Sourcefit\Domain\LeaveManagement\Leave $leave): void
+    public function store(\Sourcefit\Domain\LeaveManagement\Leave $leave): void
     {
         $this->leave->file($leave->id, $leave->employeeId, $leave->leaveDate);
     }
 
-    public function update(Sourcefit\Domain\LeaveManagement\Leave $leave, string $action): void
+    public function update(\Sourcefit\Domain\LeaveManagement\Leave $leave, string $action): void
     {
         switch ($action) {
           case 'CANCEL':
@@ -44,7 +44,7 @@ class LeaveRepository implements Sourcefit\Domain\LeaveManagement\Repository\Lea
         return $this->leave->findAllAndBuild($employeeId);
     }
   
-    public function checkLeaveDate(string $employeeId, DateTimeInterface $leaveDate): ?\Sourcefit\Domain\LeaveManagement\Leave
+    public function checkLeaveDate(string $employeeId, \DateTimeInterface $leaveDate): ?\Sourcefit\Domain\LeaveManagement\Leave
     {
         return $this->leave->findOne(['employeeId' => $employeeId, 'leaveDate' => date_format($leaveDate, 'Y-m-d'), 'status !=' => 'CANCELLED']);
     }
