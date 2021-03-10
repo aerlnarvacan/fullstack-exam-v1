@@ -13,7 +13,7 @@ class LeaveQueryHandler
     /***
      * Get Employee Leaves
      */
-    public function getLeaves(string $employeeId)
+    public function getLeaves(string $employeeId = null)
     {
         return $this->leaveRepository->getEmployeeLeaves($employeeId);
     }

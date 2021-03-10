@@ -75,15 +75,15 @@ class Leave extends \CI_Model implements \Sourcefit\Domain\LeaveManagement\Leave
         return Leave::create($query->result()[0]);
     }
 
-    public function findAllAndBuild(string $employeeId)
+    public function findAllAndBuild(string $employeeId = null)
     {
         $this->db->select('l.*, concat(e1.firstName, " ", e1.lastName) as empName, concat(e2.firstName, " ", e2.lastName) as updater');
         $this->db->from('leaves l');
         $this->db->join('employees e1', 'l.employeeId = e1.id', 'left');
         $this->db->join('employees e2', 'l.updatedBy = e2.id', 'left');
 
-        if (!isset($employeeId)) {
-            $this->db->where('e1.employeeId', $employeeId);
+        if (!is_null($employeeId)) {
+            $this->db->where('employeeId', $employeeId);
         }
 
         $this->db->order_by('leaveDate', 'ASC');

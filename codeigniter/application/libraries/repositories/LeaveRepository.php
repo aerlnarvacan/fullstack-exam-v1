@@ -39,7 +39,7 @@ class LeaveRepository implements Sourcefit\Domain\LeaveManagement\Repository\Lea
         }
     }
 
-    public function getEmployeeLeaves(string $employeeId): array
+    public function getEmployeeLeaves(string $employeeId = null): array
     {
         return $this->leave->findAllAndBuild($employeeId);
     }
