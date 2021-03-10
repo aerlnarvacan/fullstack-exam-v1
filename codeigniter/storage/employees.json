@@ -1,0 +1,38 @@
+{
+  "5f6bd836-7151-4a36-8829-ab1fe0ee166c": {
+    "username": "admin", 
+    "password": "$2y$12$1qZldqE82OHyOZCXN27gmOufv.rwrzsvDbtUJc00AToFcTDURUSR2", 
+    "firstName": "Admin", 
+    "lastName": "Admin", 
+    "status": "active", 
+    "leaves": 10, 
+    "role": "admin"
+  },
+  "9c4a60c6-ce78-4fc1-9b15-d6770650003f": {
+    "username": "username1", 
+    "password": "$2y$12$/5aq/lXQzvnADrsevXFKnO9cki/gWB5e1nf7pklt.T6V..IZ24Ly2", 
+    "firstName": "First", 
+    "lastName": "FirstLast", 
+    "status": "active", 
+    "leaves": 10, 
+    "role": "user"
+  },
+  "82918cb1-6378-4113-8dcf-2cae12e9c8db": {
+    "username": "username2", 
+    "password": "$2y$12$iN1lHq955.t8DgsFFitffeA.3KYhvDK4PMhRjLj77eyA90uJpjoNO", 
+    "firstName": "Second", 
+    "lastName": "SecondLast", 
+    "status": "active", 
+    "leaves": 10, 
+    "role": "user"
+  },
+  "e9d20135-0704-45b9-b2b3-48fb294b9e33": {
+    "username": "username3", 
+    "password": "$2y$12$ogFPF8vnfOUOSZn.9rsBB.T9G/mQU984W6wyO2rns2R0bhL.GY3DC", 
+    "firstName": "Third", 
+    "lastName": "ThirdLast", 
+    "status": "active", 
+    "leaves": 10, 
+    "role": "user"
+  }
+}
